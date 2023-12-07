@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>側邊導航欄</title>
+
+    <style>
+        * {
+            /* list-style-type: none; */
+            padding: 0;
+            margin: 0;
+
+        }
+
+        .shell {
+            position: fixed;
+            width: 280px;
+            height: 650px;
+            background-color: #8a98c9;
+        }
+
+        .bottons {
+            margin: 60px 0;
+            padding: 16px 52px;
+            transition: .3s;
+        }
+
+        .li {
+            letter-spacing: 2px;
+            font: 600 17px '';
+            padding: 16px 52px;
+            transform: .3s;
+            /* list-style: armenian; */
+        }
+
+        .li::after {
+            content: "\2605";
+            position: absolute;
+            left: 20px;
+            margin-top: -22px;
+            display: block;
+            width: 20px;
+            height: 20px;
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .li ul {
+            width: 0;
+            height: 530px;
+            padding: 60px 0;
+            position: absolute;
+            top: 0;
+            right: 0;
+            overflow: hidden;
+            background-color: #59699b;
+            transition: .3s;
+        }
+
+        .li ul li {
+            padding: 16px 24px;
+            transition: .3s;
+        }
+
+        .li:hover ul {
+            width: 228px;
+        }
+
+        .li ul li:hover {
+            background-color: #708090;
+        }
+
+        /* 二層顏色控制 */
+        .li:nth-child(1) ul {
+            background-color: #708090;
+        }
+
+        .li:nth-child(2) ul {
+            background-color: #708090;
+        }
+
+        .li:nth-child(3) ul {
+            background-color: #708090;
+        }
+
+        .li:nth-child(4) ul {
+            background-color: #708090;
+            /* "租賃服務" */
+        }
+
+        .li:nth-child(5) ul {
+            background-color: #708090;
+            /* "購物商城" */
+        }
+
+        /* sideCtrl */
+
+        #sideCtrl {
+            /* position: absolute;
+            left: -100px; */
+
+            /* left: 100%; */
+        }
+
+        #arrow-label {}
+
+        #arrow-img {
+            width: 25px;
+            position: absolute;
+            left: calc(100% + 5px);
+        }
+
+        .shell {
+            transform: translateX(0);
+            transition: .3s;
+        }
+
+        #sideCtrl:checked+.shell {
+            transform: translateX(-100%);
+            transition: .3s;
+        }
+        #arrow-img{
+            transform: scale(1);
+            transition: 1s; 
+        }
+        #sideCtrl:checked+.shell #arrow-img {
+            transform: scale(-1);
+            transition: 1s;
+        }
+    </style>
+
+</head>
+
+<body>
+    <input type="checkbox" id="sideCtrl">
+
+    <nav class="shell">
+
+        <ul class="button">
+            <li class="li">
+                會員中心 <!-- 登入後變成會員ID或名稱) -->
+                <ul>
+                    <li>註冊會員</li>
+                    <li>忘記密碼</li>
+                    <li>會員登入/登出</li>
+                </ul>
+            </li>
+
+            <li class="li">
+                公告
+                <ul>
+                    <li>最新消息</li>
+                    <li>Q&A</li>
+                    <li>關於我們</li>
+                </ul>
+            </li>
+
+            <li class="li">
+                聯絡我們
+                <ul>
+                    <li>檢舉投訴</li>
+                </ul>
+            </li>
+
+            <li class="li">
+                租賃服務
+                <ul>
+                    <li>會員中心</li>
+                    <li>公告</li>
+                    <li>關於我們</li>
+                </ul>
+            </li>
+
+            <li class="li">
+                購物商城 |專賣文生小廢物
+                <ul>
+                    <li>會員中心</li>
+                    <li>公告</li>
+                    <li>關於我們</li>
+                </ul>
+            </li>
+        </ul>
+        <label id="arrow-label" for="sideCtrl"><img id="arrow-img" src="/icon/nav/fast-forward.png" alt=""> </label>
+    </nav>
+</body>
+
+</html>
